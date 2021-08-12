@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import Button from "./Button";
 import Count from "./Count";
 import Title from "./Title";
@@ -7,12 +7,14 @@ function ParentComponent() {
   const [age, setAge] = useState(25);
   const [salary, setSalary] = useState(50000);
 
-  const incrementAge = () => {
+  const incrementAge = useCallback(() => {
     setAge(age + 1);
-  };
-  const incrementSalary = () => {
+  }, [age]);
+
+  const incrementSalary = useCallback(() => {
     setSalary(salary + 1000);
-  };
+  }, [salary]);
+
   return (
     <div>
       <Title />
@@ -25,3 +27,10 @@ function ParentComponent() {
 }
 
 export default ParentComponent;
+
+//useCallback is a hook that will return a memoized version of the
+//callback function that only changes if one of the dependencies
+//has changed.
+
+//It is useful when passing callbacks to optimized child components
+//that rely on reference equality to prevent unnecessary renders.
