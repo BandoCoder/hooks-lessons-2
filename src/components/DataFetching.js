@@ -1,32 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { css } from "@emotion/react";
-import ClipLoader from "react-spinners/ClipLoader";
-
-const override = css`
-  display: block;
-  margin: 0 auto;
-  border-color: red;
-`;
+import { ScaleLoader } from "react-spinners";
 
 function DataFetching() {
-  const [loading, setLaoding] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [post, setPost] = useState({});
-  const [color, setColor] = useState("#ffffff");
 
   useEffect(() => {
     async function getPost() {
       try {
-        let res = await fetch(
-          "https://jsonplaceholder.typicode.com/possrgts/1"
-        );
+        let res = await fetch("https://jsonplaceholder.typicode.com/posts/1");
         if (!res.ok) throw new Error(res.status);
         let fetchedPost = await res.json();
-        setLaoding(false);
+        setLoading(false);
         setPost(fetchedPost);
         setError("");
       } catch (error) {
-        setLaoding(false);
+        setLoading(false);
         setPost({});
         setError(`Something Went Wrong - ${error}`);
       }
@@ -35,11 +26,7 @@ function DataFetching() {
   }, []);
   return (
     <div>
-      {loading ? (
-        <ClipLoader color={color} loading={loading} css={override} size={150} />
-      ) : (
-        post.title
-      )}
+      {loading ? <ScaleLoader /> : post.title}
       {error ? error : null}
     </div>
   );
