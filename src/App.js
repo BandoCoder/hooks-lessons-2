@@ -10,12 +10,12 @@ import DocTitleTwo from "./components/DocTitleTwo";
 import FocusInput from "./components/FocusInput";
 import HookTimer from "./components/HookTimer";
 import ParentComponent from "./components/ParentComponent";
+import UserForm from "./components/UserForm";
 
 function App() {
   return (
     <div className="App">
-      <Counter1 />
-      <Counter2 />
+      <UserForm />
     </div>
   );
 }
