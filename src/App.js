@@ -1,6 +1,8 @@
 import "./App.css";
 import ClassTimer from "./components/ClassTimer";
 import Counter from "./components/Counter";
+import Counter1 from "./components/Counter1";
+import Counter2 from "./components/Counter2";
 import DataFetching from "./components/DataFetching";
 import DataFetchingTwo from "./components/DataFetchingTwo";
 import DocTitleOne from "./components/DocTitleOne";
@@ -12,8 +14,8 @@ import ParentComponent from "./components/ParentComponent";
 function App() {
   return (
     <div className="App">
-      <DocTitleOne />
-      <DocTitleTwo />
+      <Counter1 />
+      <Counter2 />
     </div>
   );
 }
