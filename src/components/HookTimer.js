@@ -23,3 +23,6 @@ function HookTimer() {
 }
 
 export default HookTimer;
+
+//useRef can store any mutable value.
+//useRef can reference a dom node using ref attribute on the node.
